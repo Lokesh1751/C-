@@ -10,7 +10,9 @@ int main()
 {
     int a, b;
     cin >> a >> b;
+    cout<<"Before Swap:"<<endl;
     cout << a << " " << b << endl;
     swap(&a, &b);
+    cout<<"After Swap:"<<endl;
     cout << a << " " << b << endl;
 }
