@@ -2,9 +2,20 @@
 using namespace std;
 class Complexnumber
 {
+    public:
     int real;
     int imaginery;
+// Complexnumber(int x,int y){
+//    this->real=x;
+//    this->imaginery=y;
+    
 
+
+// }
+Complexnumber(){
+    this->real=0;
+    this->imaginery=0;
+}
 public:
     void read()
     {
@@ -15,7 +26,7 @@ public:
     }
     void display()
     {
-        if (imaginery > 0 && imaginery > 0)
+        if (imaginery >= 0 && real >= 0)
         {
             cout << real << "+" << imaginery << "i";
         }
@@ -23,8 +34,11 @@ public:
 };
 int main()
 {
-    Complexnumber cn, cn1;
+    Complexnumber cn;
     cn.read();
     cn.display();
     return 0;
+
+       
+ 
 }
