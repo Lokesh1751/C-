@@ -40,18 +40,27 @@ public:
         c3.imaginery = imaginery + cn1.imaginery;
         return c3;
     }
+    Complexnumber subtract(Complexnumber cn1)
+    {
+        Complexnumber c4;
+        c4.real = real - cn1.real;
+        c4.imaginery = imaginery - cn1.imaginery;
+        return c4;
+    }
 };
 int main()
 {
-    Complexnumber cn,cn1,c3;
+    Complexnumber cn, cn1, c3,c4;
     cn1.read();
     cn1.display();
     cout << endl;
     cn.read();
     cn.display();
-    cout<<endl;
+    cout << endl;
     c3 = cn.addition(cn1);
     c3.display();
+    cout << endl;
+    c4=cn.subtract(cn1);
+    c4.display();
     return 0;
-    
 }
