@@ -11,12 +11,17 @@ void read(){
     cin>>imaginery;
 }
 void display(){
-    cout<<real<<"+"<<imaginery<<"i";
+    if(imaginery>0 && imaginery>0){
+        cout<<real<<"+"<<imaginery<<"i";
+
+    }
+    
 }
 };
 int main(){
     Complexnumber cn;
     cn.read();
     cn.display();
+    return 0;
 
 }
