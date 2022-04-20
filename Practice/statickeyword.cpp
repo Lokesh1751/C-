@@ -14,4 +14,6 @@ int main()
     cout<<obj.count<<endl;
     demo obj1;
     cout<<obj1.count<<endl;
+    demo obj2;
+    cout<<obj2.count<<endl;
 }
