@@ -17,6 +17,5 @@ int main()
 
     cout << b.count << endl;
     booking b1(10);
-    
     cout << b1.count << endl;
 }
