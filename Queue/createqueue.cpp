@@ -6,7 +6,8 @@ int main()
     queue<int> q;
 
     q.push(11);
-    cout<<"front of queue is:"<<" "<<q.front()<<endl;
+    cout << "front of queue is:"
+         << " " << q.front() << endl;
 
     q.push(15);
 
@@ -14,15 +15,17 @@ int main()
 
     cout << "Size of queue is:"
          << " " << q.size() << endl;
-         q.pop();
-         cout<<"front of queue is:"<<" "<<q.front()<<endl;
-      cout << "Size of queue is:"
+    q.pop();
+    cout << "front of queue is:"
+         << " " << q.front() << endl;
+    cout << "Size of queue is:"
          << " " << q.size() << endl;
-        if(q.empty()){
-            cout<<"Queue is empty"<<endl;
-        }
-        else{
-            cout<<"Queue is not empty"<<endl;
-        }
-
+    if (q.empty())
+    {
+        cout << "Queue is empty" << endl;
+    }
+    else
+    {
+        cout << "Queue is not empty" << endl;
+    }
 }
