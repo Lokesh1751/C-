@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 class node
 {
@@ -13,23 +14,142 @@ public:
         this->right = NULL;
     }
 };
-node* buildTree(node* root){
-    cout<<"Enter the data:"<<endl;
+node *buildTree(node *root)
+{
+    cout << "Enter the data:" << endl;
     int data;
-    cin>>data;
-    root=new node(data);
-    if(data==-1){
+    cin >> data;
+    root = new node(data);
+    if (data == -1)
+    {
         return NULL;
     }
-    cout<<"Enter data for inserting in left"<<" "<<data<<endl;;
-    root->left=buildTree(root->left);
-    cout<<"Enter data for inserting in right"<<" "<<data<<endl;
-    root->right=buildTree(root->right);
+    cout << "Enter data for inserting in left"
+         << " " << data << endl;
+    ;
+    root->left = buildTree(root->left);
+    cout << "Enter data for inserting in right"
+         << " " << data << endl;
+    root->right = buildTree(root->right);
     return root;
 }
+void levelOrdertraversal(node *root)
+{
+    queue<node *> q;
+    q.push(root);
+    q.push(NULL);
+    while (!q.empty())
+    {
+        node *temp = q.front();
+        q.pop();
+        if (temp == NULL)
+        {
+            cout << endl;
+            if (!q.empty())
+            {
+                q.push(NULL);
+            }
+        }
+        else
+        {
+            cout << temp->data << " ";
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
+        }
+    }
+}
+void inorder(node *root)
+{
+    // base case
+    // LNR
+    if (root == NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+void preorder(node *root)
+{
+    // base case
+    // NLR
+    if (root == NULL)
+    {
+        return;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+void postorder(node *root)
+{
+    // base case
+    // LRN
+    if (root == NULL)
+    {
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
+}
+void buildfromlevelorder(node* &root){
+      queue<node*> q;
+      cout<<"Enter a data for root:"<<endl;
+      int data;
+      cin>>data;
+      root=new node(data);
+      q.push(root);
+      while(!q.empty()){
+           node* temp=q.front();
+          q.pop();
+          cout<<"Enter left node "<<" "<<temp->data<<endl;
+          int leftdata;
+          cin>>leftdata;
+          if(leftdata!=-1){
+              temp->left=new node(leftdata);
+              q.push(temp->left);
+
+          }
+          cout<<"Enter right node "<<" "<<temp->data<<endl;
+          int rightdata;
+          cin>>rightdata;
+          if(rightdata!=-1){
+              temp->right=new node(rightdata);
+              q.push(temp->right);
+
+          }
+
+      }
+}
+
 int main()
 {
-    node* root=NULL;
-    // creating a tree
-    root=buildTree(root);
+ node *root = NULL;
+ buildfromlevelorder(root);
+ levelOrdertraversal(root);
+    // // creating a tree
+    // root = buildTree(root);
+    // // level order
+    // levelOrdertraversal(root);
+    // cout << "inorder traversal is:"
+    //      << " ";
+    // inorder(root);
+    // cout << endl;
+    // cout << "preorder traversal is:"
+    //      << " ";
+    // preorder(root);
+    // cout << endl;
+    // cout << "postorder traversal is:"
+    //      << " ";
+    // postorder(root);
+    // cout << endl;
+
 }
