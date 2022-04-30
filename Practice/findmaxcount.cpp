@@ -17,10 +17,9 @@ int main()
             {
                 count++;
                 maxx = max(maxx, count);
-                ans=arr[i];
 
             }
         }
     }
-    cout << ans << endl;
+    cout << count << endl;
 }
