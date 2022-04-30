@@ -1,13 +1,14 @@
 #include <iostream>
 #include <math.h>
+#include <map>
 #include <limits.h>
 using namespace std;
 int main()
 {
-    int arr[8] = {1,2,3,4,5,6,1,10};
+    int arr[8] = {9, 1, 9, 6, 7, 9, 7};
     int count;
     int maxx = INT_MIN;
-    int ans=0;
+    map<int, int> m;
     for (int i = 0; i < 8; i++)
     {
         count = 0;
@@ -17,9 +18,16 @@ int main()
             {
                 count++;
                 maxx = max(maxx, count);
-
             }
         }
+        m.insert({arr[i], count});
     }
-    cout << count << endl;
+    for (auto i : m)
+    {
+        // cout << i.first << " " << i.second<<endl;
+        if (i.second == maxx)
+        {
+            cout << i.first << endl;
+        }
+    }
 }
