@@ -27,6 +27,6 @@ hero1.setname(name);
 name[0]='G';
  hero1.print();
  Hero hero2(hero1);
-   hero1.print();
+   hero2.print();
 
 }
