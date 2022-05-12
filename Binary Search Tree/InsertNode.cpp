@@ -143,6 +143,6 @@ int main()
       cout<<"Printing Postorder:"<<" ";
     postorder(root);
      cout<<endl;
-     
+     // TIME COMPLEXITY IS O(LOGN);
      cout<<"Search result is:"<<" "<<searchInBST(root,5)<<endl;;
 }
