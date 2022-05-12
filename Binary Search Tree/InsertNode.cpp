@@ -14,6 +14,22 @@ public:
         this->right = NULL;
     }
 };
+bool searchInBST(Node* root, int x) {
+	if(root==NULL){
+		return false;
+	}
+	if(root->data==x){
+		return true;
+	}
+	if(root->data>x){
+		// chotta toh left me milega bhai yr
+		return searchInBST(root->left,  x);
+	}
+	if(root->data<x){
+		return searchInBST(root->right,  x);
+	}
+
+}
 void inorder(Node *root)
 {
     // base case
@@ -127,4 +143,6 @@ int main()
       cout<<"Printing Postorder:"<<" ";
     postorder(root);
      cout<<endl;
+     
+     cout<<"Search result is:"<<" "<<searchInBST(root,5)<<endl;;
 }
