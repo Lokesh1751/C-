@@ -154,7 +154,10 @@ int main()
     takeInput(root);
      levelOrdertraversal(root);
      cout<<endl;
-    deletefromBST(root,9);
+     int deletenode;
+     cout<<"Which node you want to delete:"<<" ";
+     cin>>deletenode;
+    deletefromBST(root,deletenode);
     levelOrdertraversal(root);
     // 10 8 7 27 5 9 4 3 2 1 -1
 }
