@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 class Node
 {
@@ -13,6 +14,73 @@ public:
         this->right = NULL;
     }
 };
+void inorder(Node *root)
+{
+    // base case
+    // LNR
+    if (root == NULL)
+    {
+        return;
+    }
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+void preorder(Node *root)
+{
+    // base case
+    // NLR
+    if (root == NULL)
+    {
+        return;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+void postorder(Node *root)
+{
+    // base case
+    // LRN
+    if (root == NULL)
+    {
+        return;
+    }
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
+}
+void levelOrdertraversal(Node *root)
+{
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+    while (!q.empty())
+    {
+        Node *temp = q.front();
+        q.pop();
+        if (temp == NULL)
+        {
+            cout << endl;
+            if (!q.empty())
+            {
+                q.push(NULL);
+            }
+        }
+        else
+        {
+            cout << temp->data << " ";
+            if (temp->left)
+            {
+                q.push(temp->left);
+            }
+            if (temp->right)
+            {
+                q.push(temp->right);
+            }
+        }
+    }
+}
 Node *insertIntoBST(Node *&root, int d)
 {
     if (root == NULL)
@@ -33,7 +101,7 @@ Node *insertIntoBST(Node *&root, int d)
     return root;
 
 }
-void takeInput(Node *&root)
+void takeInput(Node* &root)
 {
     int data;
     cin >> data;
@@ -48,4 +116,15 @@ int main()
     Node *root = NULL;
     cout << "Enter data to create BST:" << endl;
     takeInput(root);
+    cout<<"Printing the BST:"<<endl;
+    levelOrdertraversal(root);
+    cout<<"Printing Inorder:"<<" ";
+    inorder(root);
+    cout<<endl;
+      cout<<"Printing Preorder;"<<" ";
+    preorder(root);
+     cout<<endl;
+      cout<<"Printing Postorder:"<<" ";
+    postorder(root);
+     cout<<endl;
 }
