@@ -11,6 +11,7 @@ int main()
     {
         for (int j = i + 1; j < 5; j++)
         {
+            ans.push_back(arr[i]);
             ans.push_back(arr[i] + arr[j]);
         }
     }
