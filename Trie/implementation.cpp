@@ -85,11 +85,13 @@ int main()
     t->insertword("ARM");
     t->insertword("DO");
     t->insertword("TIME");
-    if(t->search("ARM")){
-    cout << "Present"<<endl;
+    if (t->search("ARM"))
+    {
+        cout << "Present" << endl;
     }
-    else{
-        cout<<"Not present"<<endl;
+    else
+    {
+        cout << "Not present" << endl;
     }
     return 0;
 }
