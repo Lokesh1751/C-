@@ -78,6 +78,29 @@ public:
     {
         return searchutil(root, word);
     }
+
+    void deletekro(TrieNode *root, string word)
+    {
+        if (word.length() == 0)
+        {
+            root->isterminal = false;
+        }
+        int index = word[0] - 'A';
+        TrieNode *child;
+        if (root->children[index] != NULL)
+        {
+            child = root->children[index];
+        }
+        else
+        {
+            cout << " Word Not Present" << endl;
+        }
+        return deletekro(child, word.substr(1));
+    }
+    void deletekroo(string word)
+    {
+        deletekro(root, word);
+    }
 };
 int main()
 {
@@ -86,6 +109,16 @@ int main()
     t->insertword("DO");
     t->insertword("TIME");
     if (t->search("ARM"))
+    {
+        cout << "Present" << endl;
+    }
+    else
+    {
+        cout << "Not present" << endl;
+    }
+
+    t->deletekroo("DO");
+    if (t->search("DO"))
     {
         cout << "Present" << endl;
     }
